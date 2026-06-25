@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RAE — Delete Account</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --purple: #8878C3;
+      --purple-dark: #6B5BA8;
+      --purple-light: #F3F0FF;
+      --text: #1C1C2E;
+      --text-secondary: #5A5A7A;
+      --border: #DDD8F0;
+      --white: #FFFFFF;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #F8F7FC;
+      color: var(--text);
+      line-height: 1.75;
+    }
+    header {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+    }
+    .header-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 1rem 0;
+    }
+    .header-inner img { width: 36px; height: 36px; border-radius: 9px; }
+    .brand-name { font-size: 1.2rem; font-weight: 800; letter-spacing: 0.14em; color: var(--purple-dark); }
+    .brand-tagline { font-size: 0.78rem; color: var(--text-secondary); margin-left: auto; }
+
+    .hero {
+      background: linear-gradient(135deg, #5E4E9E 0%, #8878C3 55%, #B8A8E8 100%);
+      color: var(--white);
+      text-align: center;
+      padding: 3rem 2rem 2.5rem;
+    }
+    .hero h1 { font-size: 1.8rem; font-weight: 800; margin-bottom: 0.4rem; }
+    .hero p { opacity: 0.82; font-size: 0.95rem; }
+
+    .content {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 2.5rem 2rem 5rem;
+    }
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.75rem;
+      margin-bottom: 1.25rem;
+    }
+    h2 { font-size: 1rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--text); }
+    p { font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 0.6rem; }
+    p:last-child { margin-bottom: 0; }
+    ul { padding-left: 1.2rem; color: var(--text-secondary); font-size: 0.95rem; }
+    li { margin-bottom: 0.45rem; }
+    strong { color: var(--text); font-weight: 600; }
+
+    .steps {
+      counter-reset: step;
+      list-style: none;
+      padding-left: 0;
+    }
+    .steps li {
+      counter-increment: step;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 0.9rem;
+    }
+    .steps li::before {
+      content: counter(step);
+      background: var(--purple);
+      color: white;
+      font-size: 0.78rem;
+      font-weight: 700;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .email-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #5E4E9E, #8878C3);
+      color: white;
+      text-decoration: none;
+      padding: 0.75rem 1.75rem;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-top: 0.5rem;
+    }
+    .email-btn:hover { opacity: 0.9; }
+
+    .warning {
+      background: #FFF8F0;
+      border-left: 3px solid #E8922A;
+      border-radius: 0 8px 8px 0;
+      padding: 0.85rem 1.1rem;
+      font-size: 0.93rem;
+      color: #7A4A0A;
+      margin-top: 0.75rem;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: 0.8rem;
+      padding-bottom: 3rem;
+    }
+    a { color: var(--purple); }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <img src="logo.png" alt="RAE logo" />
+      <span class="brand-name">RAE</span>
+      <span class="brand-tagline">by Sentra Innovations</span>
+    </div>
+  </header>
+
+  <div class="hero">
+    <h1>Delete Your Account</h1>
+    <p>We're sorry to see you go. Here's how to delete your account and data.</p>
+  </div>
+
+  <div class="content">
+
+    <div class="card">
+      <h2>Option 1 — Delete from within the App</h2>
+      <ul class="steps">
+        <li>Open the RAE app and sign in.</li>
+        <li>Go to <strong>Profile</strong> → <strong>Settings</strong>.</li>
+        <li>Tap <strong>Delete Account</strong>.</li>
+        <li>Confirm deletion. Your account and all data will be permanently deleted.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Option 2 — Request via Email</h2>
+      <p>If you cannot access the app, email us and we will delete your account within <strong>7 business days</strong>.</p>
+      <p>Include your registered phone number in the email.</p>
+      <a class="email-btn" href="mailto:operations@sentrainnovations.in?subject=Delete%20My%20RAE%20Account&body=Please%20delete%20my%20RAE%20account.%0A%0ARegistered%20phone%20number%3A%20">
+        Email Us to Delete Account
+      </a>
+    </div>
+
+    <div class="card">
+      <h2>What gets deleted</h2>
+      <ul>
+        <li><strong>Permanently deleted:</strong> Your account, phone number, all skin scan photos, analysis results, routines, and diary entries.</li>
+        <li><strong>Retained temporarily:</strong> Transaction records may be kept for up to 90 days as required by law.</li>
+        <li><strong>Subscription:</strong> Deleting your account does not automatically cancel your subscription. Cancel it separately in the Google Play Store or App Store before deleting.</li>
+      </ul>
+      <div class="warning">
+        Account deletion is permanent and cannot be undone. All your skin diary progress will be lost.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Delete only your data (without deleting your account)</h2>
+      <p>You can delete individual scan photos and diary entries from within the app without deleting your account. Go to <strong>Diary</strong> → tap any scan → <strong>Delete</strong>.</p>
+      <p>To delete all your data but keep your account, email us at <a href="mailto:operations@sentrainnovations.in">operations@sentrainnovations.in</a>.</p>
+    </div>
+
+    <footer>
+      &copy; 2026 Sentra Innovations Private Limited. All rights reserved.<br />
+      <a href="/">Privacy Policy</a>
+    </footer>
+
+  </div>
+</body>
+</html>
