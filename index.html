@@ -2,399 +2,363 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RAE — Your AI Skincare Companion</title>
-  <meta name="description" content="RAE analyses your skin with AI, builds personalised routines, and tracks your progress over time." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RAE — Your Personal AI Skincare Companion</title>
+  <meta name="description" content="RAE analyzes your skin with AI, builds personalized routines, and tracks your progress." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --purple: #B05A3A;
-      --purple-dark: #8A4530;
-      --purple-deep: #1E120C;
-      --purple-light: #EAD9CC;
+      --bg: #F2EAE0;
+      --surface: #FFFBF7;
+      --accent: #B05A3A;
       --text: #1E120C;
-      --text-secondary: #7A5C4E;
-      --border: #E8D4C7;
-      --white: #FFFBF7;
+      --text-muted: #7A5C4E;
     }
-    html { scroll-behavior: smooth; }
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+    
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: var(--white);
+      background-color: var(--bg);
       color: var(--text);
-      line-height: 1.6;
       overflow-x: hidden;
     }
 
-    /* ── Nav ── */
+    /* Navbar */
     nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      background: rgba(255,251,247,0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      z-index: 100;
-      padding: 0 2rem;
-    }
-    .nav-inner {
-      max-width: 1100px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 48px;
+      max-width: 1400px;
       margin: 0 auto;
+    }
+    .logo-container {
       display: flex;
       align-items: center;
       gap: 12px;
-      height: 60px;
-    }
-    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-    .nav-logo img { width: 32px; height: 32px; border-radius: 8px; }
-    .nav-logo span { font-size: 1.15rem; font-weight: 800; letter-spacing: 0.12em; color: var(--purple-dark); }
-    .nav-links { margin-left: auto; display: flex; gap: 2rem; }
-    .nav-links a { font-size: 0.88rem; color: var(--text-secondary); text-decoration: none; font-weight: 500; }
-    .nav-links a:hover { color: var(--purple-dark); }
-    .nav-cta {
-      margin-left: 1.5rem;
-      background: var(--purple-dark);
-      color: white;
-      padding: 0.45rem 1.1rem;
-      border-radius: 8px;
-      font-size: 0.85rem;
-      font-weight: 600;
       text-decoration: none;
     }
-
-    /* ── Hero ── */
-    .hero {
-      min-height: 100vh;
-      background: linear-gradient(160deg, #1E120C 0%, #5E2F20 40%, #8A4530 75%, #B05A3A 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 8rem 2rem 5rem;
-      position: relative;
-      overflow: hidden;
+    .logo-container img {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
     }
-    .hero::before {
-      content: '';
-      position: absolute;
-      width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(255,251,247,0.08) 0%, transparent 70%);
-      top: 10%; left: 50%;
-      transform: translateX(-50%);
-      pointer-events: none;
-    }
-    .hero-content { position: relative; max-width: 700px; }
-    .hero-badge {
-      display: inline-block;
-      background: rgba(255,251,247,0.15);
-      border: 1px solid rgba(255,251,247,0.25);
-      color: rgba(255,251,247,0.9);
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      padding: 0.35rem 1rem;
-      border-radius: 20px;
-      margin-bottom: 1.5rem;
-    }
-    .hero-logo {
-      width: 90px; height: 90px;
-      border-radius: 22px;
-      margin: 0 auto 1.5rem;
-      display: block;
-      box-shadow: 0 16px 48px rgba(0,0,0,0.3);
-    }
-    .hero h1 {
-      font-size: 3.5rem;
-      font-weight: 900;
-      color: white;
-      letter-spacing: -0.02em;
-      line-height: 1.1;
-      margin-bottom: 1rem;
-    }
-    .hero h1 span { color: #D4C8F5; }
-    .hero p {
-      font-size: 1.15rem;
-      color: rgba(255,251,247,0.8);
-      margin-bottom: 2.5rem;
-      max-width: 520px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .hero-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: #FFFBF7;
-      color: var(--purple-dark);
-      padding: 0.85rem 2rem;
-      border-radius: 12px;
-      font-weight: 700;
-      font-size: 0.95rem;
-      text-decoration: none;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-    }
-    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 8px 28px rgba(0,0,0,0.2); }
-    .btn-secondary {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(255,251,247,0.12);
-      border: 1px solid rgba(255,251,247,0.3);
-      color: white;
-      padding: 0.85rem 2rem;
-      border-radius: 12px;
-      font-weight: 600;
-      font-size: 0.95rem;
-      text-decoration: none;
-    }
-    .hero-sub { margin-top: 2rem; font-size: 0.82rem; color: rgba(255,251,247,0.5); }
-
-    /* ── Features ── */
-    .features {
-      padding: 6rem 2rem;
-      background: #F2EAE0;
-    }
-    .section-label {
-      text-align: center;
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      color: var(--purple);
-      text-transform: uppercase;
-      margin-bottom: 0.75rem;
-    }
-    .section-title {
-      text-align: center;
-      font-size: 2.2rem;
+    .logo-text {
+      font-size: 24px;
       font-weight: 800;
-      color: var(--text);
-      margin-bottom: 0.6rem;
-      letter-spacing: -0.01em;
+      color: var(--accent);
+      letter-spacing: -0.5px;
     }
-    .section-sub {
-      text-align: center;
-      color: var(--text-secondary);
-      font-size: 1rem;
-      max-width: 500px;
-      margin: 0 auto 3.5rem;
-    }
-    .features-grid {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.25rem;
-    }
-    .feature-card {
-      background: #FFFBF7;
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 1.75rem;
-    }
-    .feature-icon {
-      width: 44px; height: 44px;
-      background: var(--purple-light);
-      border-radius: 12px;
+    
+    .nav-links {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.3rem;
-      margin-bottom: 1rem;
+      gap: 32px;
+      background: var(--surface);
+      padding: 12px 32px;
+      border-radius: 100px;
+      box-shadow: 0 4px 20px rgba(176,90,58,0.05);
     }
-    .feature-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
-    .feature-card p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-weight: 500;
+      font-size: 15px;
+      transition: color 0.2s;
+    }
+    .nav-links a.active, .nav-links a:hover {
+      color: var(--text);
+      font-weight: 600;
+    }
+    
+    .download-btn {
+      background: var(--accent);
+      color: white;
+      text-decoration: none;
+      padding: 14px 28px;
+      border-radius: 100px;
+      font-weight: 600;
+      font-size: 15px;
+      transition: transform 0.2s, background 0.2s;
+    }
+    .download-btn:hover {
+      background: #8A4530;
+      transform: translateY(-2px);
+    }
 
-    /* ── How it works ── */
-    .how {
-      padding: 6rem 2rem;
-      background: #FFFBF7;
-    }
-    .how-inner {
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 60px 20px 20px;
       max-width: 900px;
       margin: 0 auto;
+      position: relative;
     }
-    .steps-row {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-      margin-top: 3rem;
+    h1 {
+      font-size: 64px;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -1.5px;
+      color: var(--text);
     }
-    .step { text-align: center; }
-    .step-num {
-      width: 48px; height: 48px;
-      background: linear-gradient(135deg, var(--purple-dark), var(--purple));
-      color: white;
-      border-radius: 50%;
+    .highlight {
+      position: relative;
+      display: inline-block;
+      color: var(--text);
+    }
+    .highlight::after {
+      content: '';
+      position: absolute;
+      bottom: 8px;
+      left: -5%;
+      width: 110%;
+      height: 24px;
+      background: rgba(176,90,58,0.25);
+      z-index: -1;
+      transform: rotate(-1deg);
+      border-radius: 4px;
+    }
+
+    /* Store Buttons */
+    .store-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 40px;
+      margin-bottom: 60px;
+    }
+    .store-btn {
       display: flex;
       align-items: center;
-      justify-content: center;
-      font-size: 1.1rem;
-      font-weight: 800;
-      margin: 0 auto 1rem;
-    }
-    .step h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; }
-    .step p { font-size: 0.88rem; color: var(--text-secondary); }
-
-    /* ── CTA ── */
-    .cta-section {
-      background: linear-gradient(135deg, #1E120C 0%, #8A4530 60%, #B05A3A 100%);
-      padding: 5rem 2rem;
-      text-align: center;
+      gap: 12px;
+      background: #111;
       color: white;
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: 100px;
+      transition: transform 0.2s;
     }
-    .cta-section h2 { font-size: 2.2rem; font-weight: 800; margin-bottom: 0.75rem; }
-    .cta-section p { opacity: 0.82; margin-bottom: 2rem; font-size: 1rem; }
+    .store-btn:hover { transform: translateY(-2px); }
+    .store-btn svg { width: 24px; height: 24px; fill: white; }
+    .store-btn div { text-align: left; }
+    .store-btn .small { font-size: 10px; opacity: 0.8; line-height: 1; }
+    .store-btn .big { font-size: 16px; font-weight: 600; line-height: 1.2; }
 
-    /* ── Footer ── */
-    footer {
-      background: #1E120C;
-      color: rgba(255,251,247,0.5);
-      padding: 2.5rem 2rem;
-      text-align: center;
-      font-size: 0.83rem;
+    /* App Showcase */
+    .showcase-container {
+      position: relative;
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      padding-bottom: 80px;
     }
-    footer a { color: rgba(255,251,247,0.6); text-decoration: none; margin: 0 0.75rem; }
-    footer a:hover { color: white; }
-    .footer-logo { display: flex; align-items: center; gap: 8px; justify-content: center; margin-bottom: 1rem; }
-    .footer-logo img { width: 28px; height: 28px; border-radius: 7px; opacity: 0.7; }
-    .footer-logo span { font-weight: 800; letter-spacing: 0.1em; color: rgba(255,251,247,0.7); }
+    
+    .phone-frame {
+      width: 320px;
+      height: 650px;
+      background: black;
+      border-radius: 44px;
+      padding: 12px;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.15), 0 0 0 1px rgba(0,0,0,0.05);
+      position: relative;
+      z-index: 10;
+    }
+    .phone-screen {
+      width: 100%;
+      height: 100%;
+      background: var(--surface);
+      border-radius: 32px;
+      overflow: hidden;
+      position: relative;
+    }
+    .phone-screen img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .dynamic-island {
+      position: absolute;
+      top: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 28px;
+      background: black;
+      border-radius: 20px;
+      z-index: 20;
+    }
 
-    @media (max-width: 768px) {
-      .hero h1 { font-size: 2.4rem; }
-      .features-grid { grid-template-columns: 1fr; }
-      .steps-row { grid-template-columns: 1fr; gap: 1.5rem; }
+    /* Floating Cards (Glassmorphism) */
+    .float-card {
+      position: absolute;
+      background: rgba(255,251,247,0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.6);
+      border-radius: 100px;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 16px 32px rgba(176,90,58,0.08);
+      z-index: 20;
+      animation: float 6s ease-in-out infinite;
+    }
+    .fc-1 { top: 20%; left: 8%; animation-delay: 0s; }
+    .fc-2 { bottom: 30%; left: 12%; animation-delay: -2s; padding: 12px 20px; }
+    .fc-3 { top: 35%; right: 5%; animation-delay: -1s; padding: 12px 16px; border-radius: 24px; }
+    .fc-4 { bottom: 25%; right: 10%; animation-delay: -3s; }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-12px); }
+      100% { transform: translateY(0px); }
+    }
+
+    .fc-icon {
+      width: 40px; height: 40px;
+      background: var(--bg);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px;
+    }
+    .fc-text h4 { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 2px;}
+    .fc-text p { font-size: 12px; color: var(--text-muted); }
+    
+    .fc-tag {
+      background: var(--accent); color: white;
+      font-size: 11px; font-weight: 700;
+      padding: 4px 10px; border-radius: 12px;
+      margin-left: 8px;
+    }
+
+    /* Mini profiles */
+    .profiles-row {
+      display: flex; gap: 8px;
+    }
+    .profile-pill {
+      background: rgba(255,251,247,0.85);
+      border: 1px solid rgba(255,255,255,0.6);
+      padding: 12px; border-radius: 100px;
+      display: flex; flex-direction: column; align-items: center; gap: 4px;
+      box-shadow: 0 8px 16px rgba(176,90,58,0.05);
+    }
+    .profile-pill.active {
+      border: 2px solid var(--accent);
+      background: var(--surface);
+    }
+    .profile-pill img { width: 36px; height: 36px; border-radius: 50%; background: #E8D4C7; }
+    .profile-pill span { font-size: 10px; font-weight: 600; color: var(--text); }
+    .profile-pill .role { font-size: 9px; color: var(--text-muted); font-weight: 400;}
+
+    @media (max-width: 900px) {
+      h1 { font-size: 42px; }
+      .float-card { display: none; }
+      nav { padding: 20px; }
       .nav-links { display: none; }
-      .section-title { font-size: 1.8rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Nav -->
   <nav>
-    <div class="nav-inner">
-      <a class="nav-logo" href="/">
-        <img src="logo.png" alt="RAE" />
-        <span>RAE</span>
-      </a>
-      <div class="nav-links">
-        <a href="#features">Features</a>
-        <a href="#how">How it works</a>
-        <a href="/privacy-policy">Privacy</a>
-        <a href="/terms-of-service">Terms</a>
-      </div>
-      <a class="nav-cta" href="#download">Get the App</a>
-    </div>
-  </nav>
-
-  <!-- Hero -->
-  <section class="hero">
-    <div class="hero-content">
-      <div class="hero-badge">AI-Powered Skincare</div>
-      <img class="hero-logo" src="logo.png" alt="RAE logo" />
-      <h1>Your skin.<br /><span>Understood.</span></h1>
-      <p>RAE analyses your skin through a selfie, builds personalised routines, and tracks your progress over time — all powered by AI.</p>
-      <div class="hero-actions" id="download">
-        <a class="btn-primary" href="https://play.google.com/store/apps/details?id=com.sentra.rae">
-          ▶ Get on Google Play
-        </a>
-        <a class="btn-secondary" href="#features">
-          Learn more
-        </a>
-      </div>
-      <p class="hero-sub">Free to download · Premium features available</p>
-    </div>
-  </section>
-
-  <!-- Features -->
-  <section class="features" id="features">
-    <p class="section-label">What RAE does</p>
-    <h2 class="section-title">Everything your skin needs</h2>
-    <p class="section-sub">One app for analysis, routines, tracking, and expert AI guidance.</p>
-    <div class="features-grid">
-      <div class="feature-card">
-        <div class="feature-icon">🔍</div>
-        <h3>AI Skin Analysis</h3>
-        <p>Take a selfie and get an instant cosmetic analysis — hydration, texture, pigmentation, clarity, and more.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">✨</div>
-        <h3>Personalised Routines</h3>
-        <p>Morning and evening routines tailored to your specific skin type, concerns, and goals. No generic advice.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">📅</div>
-        <h3>Skin Diary</h3>
-        <p>Track your skin's journey with before-and-after comparisons and weekly progress insights.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">💬</div>
-        <h3>RAE AI Chat</h3>
-        <p>Ask RAE anything about skincare — ingredients, routines, product choices — available any time.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">🏆</div>
-        <h3>Daily Quests</h3>
-        <p>Build healthy habits with fun daily skincare quests and streaks that keep you consistent.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">🔒</div>
-        <h3>Private & Secure</h3>
-        <p>Your photos stay yours. We never sell your data or use your skin photos for advertising.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- How it works -->
-  <section class="how" id="how">
-    <div class="how-inner">
-      <p class="section-label">Simple to start</p>
-      <h2 class="section-title">How RAE works</h2>
-      <p class="section-sub">Get personalised skincare guidance in three easy steps.</p>
-      <div class="steps-row">
-        <div class="step">
-          <div class="step-num">1</div>
-          <h3>Scan your skin</h3>
-          <p>Take a selfie in good lighting. RAE analyses your skin instantly using AI.</p>
-        </div>
-        <div class="step">
-          <div class="step-num">2</div>
-          <h3>Get your routine</h3>
-          <p>RAE builds a personalised morning and evening routine based on your unique skin.</p>
-        </div>
-        <div class="step">
-          <div class="step-num">3</div>
-          <h3>Track progress</h3>
-          <p>Scan regularly and watch your skin improve over time with your personal diary.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="cta-section">
-    <h2>Start your skin journey today</h2>
-    <p>Download RAE free on Android. Premium features unlock even deeper insights.</p>
-    <a class="btn-primary" href="https://play.google.com/store/apps/details?id=com.sentra.rae">
-      ▶ Download on Google Play
+    <a href="/" class="logo-container">
+      <img src="logo.png" alt="RAE Logo">
+      <span class="logo-text">Rae</span>
     </a>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <div class="footer-logo">
-      <img src="logo.png" alt="RAE" />
-      <span>RAE</span>
-    </div>
-    <div style="margin-bottom:0.75rem;">
+    
+    <div class="nav-links">
+      <a href="/" class="active">Home</a>
       <a href="/privacy-policy">Privacy Policy</a>
       <a href="/terms-of-service">Terms of Service</a>
-      <a href="/delete-account">Delete Account</a>
-      <a href="mailto:operations@sentrainnovations.in">Contact</a>
+      <a href="mailto:operations@sentrainnovations.in">Contact Us</a>
     </div>
-    &copy; 2026 Sentra Innovations Private Limited. All rights reserved.<br />
-    RAE provides cosmetic guidance only and is not a medical device.
-  </footer>
+    
+    <a href="#download" class="download-btn">Download App</a>
+  </nav>
+
+  <div class="hero">
+    <h1>Your Trusted Partner for<br><span class="highlight">Healthy Skincare</span></h1>
+    
+    <div class="store-buttons" id="download">
+      <a href="#" class="store-btn">
+        <svg viewBox="0 0 384 512"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+        <div>
+          <div class="small">Download on the</div>
+          <div class="big">App Store</div>
+        </div>
+      </a>
+      
+      <a href="https://play.google.com/store/apps/details?id=com.sentra.rae" class="store-btn">
+        <svg viewBox="0 0 512 512"><path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/></svg>
+        <div>
+          <div class="small">GET IT ON</div>
+          <div class="big">Google Play</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div class="showcase-container">
+    
+    <!-- Floating Card 1: AI Scan -->
+    <div class="float-card fc-1">
+      <div class="fc-icon">✨</div>
+      <div class="fc-text">
+        <h4>AI Skin Scan</h4>
+        <p>Instant cosmetic analysis</p>
+      </div>
+      <div class="fc-tag">Try it</div>
+    </div>
+    
+    <!-- Floating Card 2: Rating -->
+    <div class="float-card fc-2">
+      <span style="color:#C8923B; font-size:24px;">★</span>
+      <div class="fc-text" style="margin-left:8px;">
+        <h4 style="font-size:16px;">5.0</h4>
+        <p>Rating</p>
+      </div>
+    </div>
+    
+    <!-- Floating Card 3: Profiles (Mini feature) -->
+    <div class="float-card fc-3" style="background:transparent; border:none; box-shadow:none;">
+      <div class="profiles-row">
+        <div class="profile-pill">
+          <div style="font-size:24px;">🌞</div>
+          <span>Morning</span>
+          <span class="role">Routine</span>
+        </div>
+        <div class="profile-pill active">
+          <div style="font-size:24px;">🌙</div>
+          <span>Evening</span>
+          <span class="role">Routine</span>
+        </div>
+        <div class="profile-pill">
+          <div style="font-size:24px;">🛡️</div>
+          <span>Protect</span>
+          <span class="role">SPF 50+</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Floating Card 4: Voice Chat -->
+    <div class="float-card fc-4">
+      <div class="fc-icon" style="background:var(--accent); color:white;">🎙️</div>
+      <div class="fc-text">
+        <h4>Ask RAE</h4>
+        <p>Live voice assistant</p>
+      </div>
+    </div>
+
+    <!-- Center Phone -->
+    <div class="phone-frame">
+      <div class="dynamic-island"></div>
+      <div class="phone-screen">
+        <img src="app-screen.png" alt="App Screen" />
+      </div>
+    </div>
+    
+  </div>
 
 </body>
 </html>
