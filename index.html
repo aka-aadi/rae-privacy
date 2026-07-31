@@ -148,200 +148,27 @@
     .store-btn .small { font-size: 10px; opacity: 0.8; line-height: 1; }
     .store-btn .big { font-size: 16px; font-weight: 600; line-height: 1.2; }
 
-    /* App Showcase Container */
-    .showcase-container {
-      position: relative;
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: center;
-      padding-bottom: 0px; /* Fade handles the bottom */
-    }
-
-    /* Phone Frame */
-    .phone-wrapper {
-      position: relative;
-      z-index: 10;
-    }
-    .phone-frame {
-      width: 340px;
-      height: 680px;
-      background: #000;
-      border-radius: 44px;
-      padding: 12px;
-      box-shadow: 0 40px 80px rgba(0,0,0,0.15), 0 0 0 1px rgba(0,0,0,0.05);
-      position: relative;
-    }
-    .phone-screen {
-      width: 100%;
-      height: 100%;
-      background: var(--surface);
-      border-radius: 32px;
-      overflow: hidden;
-      position: relative;
-    }
-    .phone-screen img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top;
-    }
-    .dynamic-island {
-      position: absolute;
-      top: 8px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100px;
-      height: 28px;
-      background: black;
-      border-radius: 20px;
-      z-index: 20;
-    }
-
-    /* Bottom Fade Gradient */
-    .bottom-fade {
-      position: absolute;
-      bottom: 0;
-      left: -100%;
-      width: 300%;
-      height: 250px;
-      background: linear-gradient(to top, var(--bg) 20%, transparent);
-      z-index: 15;
-      pointer-events: none;
-    }
-
-    /* Floating Glassmorphism Cards */
-    .float-card {
-      position: absolute;
-      background: rgba(255, 251, 247, 0.9);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.7);
-      border-radius: 100px;
-      padding: 12px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      box-shadow: 0 16px 32px rgba(176,90,58,0.08);
-      z-index: 20;
-      animation: float 6s ease-in-out infinite;
-    }
-    
-    @keyframes float {
-      0% { transform: translateY(0px); }
-      50% { transform: translateY(-8px); }
-      100% { transform: translateY(0px); }
-    }
-
-    /* Card 1: Wide Pill (Left) */
-    .fc-1 { 
-      top: 25%; 
-      left: 10%; 
-      padding: 12px 24px 12px 12px;
-    }
-    .fc-1-icon {
-      width: 48px; height: 48px;
-      background: #F4E7DB;
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 24px;
-    }
-    .fc-1-text h4 { font-size: 15px; font-weight: 700; color: var(--text); }
-    .fc-1-text p { font-size: 12px; color: var(--text-muted); }
-    .fc-1-btn {
-      background: var(--accent); color: white;
-      font-size: 12px; font-weight: 700;
-      padding: 8px 16px; border-radius: 100px;
-      margin-left: 16px;
-    }
-
-    /* Card 2: Rating (Bottom Left) */
-    .fc-2 { 
-      bottom: 20%; 
-      left: 20%; 
-      padding: 12px 24px; 
-      animation-delay: -2s;
-    }
-    .fc-2 span { color: #C8923B; font-size: 24px; }
-    .fc-2 div h4 { font-size: 16px; font-weight: 700; }
-    .fc-2 div p { font-size: 12px; color: var(--text-muted); }
-
-    /* Card 3: Vertical Profiles (Right) */
-    .fc-3 { 
-      top: 30%; 
-      right: 10%; 
-      background: transparent; 
-      border: none; 
-      box-shadow: none; 
-      animation-delay: -1s;
-    }
-    .profiles-row {
-      display: flex; gap: -12px; /* Overlap slightly or side by side? Template has them side by side spaced */
-      gap: 16px;
-    }
-    .profile-pill {
-      background: rgba(255, 251, 247, 0.9);
-      border: 1px solid rgba(255, 255, 255, 0.7);
-      padding: 16px 12px; 
-      border-radius: 100px;
-      display: flex; flex-direction: column; align-items: center; gap: 8px;
-      box-shadow: 0 8px 16px rgba(176,90,58,0.05);
-      width: 70px;
-    }
-    .profile-pill.active {
-      border: 2px solid var(--accent);
-      background: #FFFBF7;
-      transform: scale(1.05);
-    }
-    .profile-pill .icon { width: 40px; height: 40px; border-radius: 50%; background: #F4E7DB; display: flex; align-items: center; justify-content: center; font-size: 20px;}
-    .profile-pill span { font-size: 11px; font-weight: 700; color: var(--text); }
-    .profile-pill .role { font-size: 9px; color: var(--text-muted); font-weight: 400;}
-
-    /* Card 4: Ask RAE (Bottom Right) */
-    .fc-4 { 
-      bottom: 15%; 
-      right: 15%; 
-      padding: 12px 24px 12px 12px;
-      animation-delay: -3s;
-    }
-    .fc-4-icon {
-      width: 44px; height: 44px;
-      background: var(--accent);
-      color: white;
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 20px;
-    }
-    .fc-4-text { margin-left: 4px; }
-    .fc-4-text h4 { font-size: 15px; font-weight: 700; color: var(--text); }
-    .fc-4-text p { font-size: 12px; color: var(--text-muted); }
-
-    /* Promo Gallery CSS */
+    /* Promo Screens Showcase */
     .promo-gallery {
       display: flex;
-      gap: 24px;
-      overflow-x: auto;
-      padding: 20px 24px 60px;
+      gap: 2%;
+      justify-content: center;
+      padding: 0 24px 80px;
       max-width: 1400px;
       margin: 0 auto;
-      scroll-snap-type: x mandatory;
-      -ms-overflow-style: none;  
-      scrollbar-width: none;  
     }
-    .promo-gallery::-webkit-scrollbar { display: none; }
     .promo-gallery img {
-      height: 550px;
-      border-radius: 32px;
-      box-shadow: 0 30px 60px rgba(176,90,58,0.15);
-      flex-shrink: 0;
-      scroll-snap-align: center;
+      width: 18%;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(176,90,58,0.15);
       transition: transform 0.3s ease;
+      object-fit: contain;
     }
-    .promo-gallery img:hover { transform: translateY(-10px); }
+    .promo-gallery img:hover {
+      transform: translateY(-8px);
+    }
 
-    @media (max-width: 1100px) {
-      .float-card { transform: scale(0.8); }
-    }
     @media (max-width: 900px) {
       h1 { font-size: 42px; }
       .float-card { display: none; }
@@ -390,83 +217,13 @@
     </div>
   </div>
 
-  <div class="showcase-container">
-    
-    <!-- Floating Card 1: AI Scan -->
-    <div class="float-card fc-1">
-      <div class="fc-1-icon">✨</div>
-      <div class="fc-1-text">
-        <h4>AI Skin Scan</h4>
-        <p>Instant cosmetic analysis</p>
-      </div>
-      <div class="fc-1-btn">Try it</div>
-    </div>
-    
-    <!-- Floating Card 2: Rating -->
-    <div class="float-card fc-2">
-      <span>★</span>
-      <div style="margin-left: 8px;">
-        <h4>5.0</h4>
-        <p>Rating</p>
-      </div>
-    </div>
-    
-    <!-- Floating Card 3: Profiles (Mini feature) -->
-    <div class="float-card fc-3">
-      <div class="profiles-row">
-        <div class="profile-pill">
-          <div class="icon">🌞</div>
-          <span>Morning</span>
-          <span class="role">Routine</span>
-        </div>
-        <div class="profile-pill active">
-          <div class="icon">🌙</div>
-          <span>Evening</span>
-          <span class="role">Routine</span>
-        </div>
-        <div class="profile-pill">
-          <div class="icon">🛡️</div>
-          <span>Protect</span>
-          <span class="role">SPF 50+</span>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Floating Card 4: Voice Chat -->
-    <div class="float-card fc-4">
-      <div class="fc-4-icon">🎙️</div>
-      <div class="fc-4-text">
-        <h4>Ask RAE</h4>
-        <p>Live voice assistant</p>
-      </div>
-    </div>
-
-    <!-- Center Phone -->
-    <div class="phone-wrapper">
-      <div class="phone-frame">
-        <div class="dynamic-island"></div>
-        <div class="phone-screen">
-          <img src="app-screen.png" alt="App Screen" />
-        </div>
-      </div>
-      <!-- This fade hides the bottom of the phone -->
-      <div class="bottom-fade"></div>
-    </div>
-    
-  </div>
-
-  <div class="promo-gallery-section" style="padding: 100px 0; background: var(--bg);">
-    <div style="text-align: center; margin-bottom: 48px;">
-      <h2 style="font-size: 40px; font-weight: 800; color: var(--text);">Inside the App</h2>
-      <p style="font-size: 18px; color: var(--text-muted); margin-top: 12px;">Everything you need for perfect skin.</p>
-    </div>
-    <div class="promo-gallery">
-      <img src="promo1.png" alt="Promo 1" />
-      <img src="promo2.png" alt="Promo 2" />
-      <img src="promo3.png" alt="Promo 3" />
-      <img src="promo4.png" alt="Promo 4" />
-      <img src="promo5.png" alt="Promo 5" />
-    </div>
+  <!-- Promo Screens Showcase (Single Page) -->
+  <div class="promo-gallery">
+    <img src="promo1.png" alt="Understand your skin" />
+    <img src="promo2.png" alt="Personalised For You" />
+    <img src="promo3.png" alt="Track your personal skin diary" />
+    <img src="promo4.png" alt="Ask RAE" />
+    <img src="promo5.png" alt="Talk to RAE" />
   </div>
 
 </body>
