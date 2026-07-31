@@ -143,119 +143,39 @@
     .store-btn .small { font-size: 10px; opacity: 0.8; line-height: 1; }
     .store-btn .big { font-size: 16px; font-weight: 600; line-height: 1.2; }
 
-    /* App Showcase */
-    .showcase-container {
-      position: relative;
-      max-width: 1000px;
+    /* Promo Gallery Showcase */
+    .promo-gallery {
+      display: flex;
+      gap: 24px;
+      overflow-x: auto;
+      padding: 40px 24px 80px;
+      max-width: 1400px;
       margin: 0 auto;
-      display: flex;
-      justify-content: center;
-      padding-bottom: 80px;
+      scroll-snap-type: x mandatory;
+      /* Hide scrollbar */
+      -ms-overflow-style: none;  
+      scrollbar-width: none;  
     }
-    
-    .phone-frame {
-      width: 320px;
-      height: 650px;
-      background: black;
-      border-radius: 44px;
-      padding: 12px;
-      box-shadow: 0 30px 60px rgba(0,0,0,0.15), 0 0 0 1px rgba(0,0,0,0.05);
-      position: relative;
-      z-index: 10;
+    .promo-gallery::-webkit-scrollbar {
+      display: none;
     }
-    .phone-screen {
-      width: 100%;
-      height: 100%;
-      background: var(--surface);
+    .promo-gallery img {
+      height: 600px;
       border-radius: 32px;
-      overflow: hidden;
-      position: relative;
+      box-shadow: 0 30px 60px rgba(176,90,58,0.15);
+      flex-shrink: 0;
+      scroll-snap-align: center;
+      transition: transform 0.3s ease;
     }
-    .phone-screen img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+    .promo-gallery img:hover {
+      transform: translateY(-10px);
     }
-    .dynamic-island {
-      position: absolute;
-      top: 8px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100px;
-      height: 28px;
-      background: black;
-      border-radius: 20px;
-      z-index: 20;
-    }
-
-    /* Floating Cards (Glassmorphism) */
-    .float-card {
-      position: absolute;
-      background: rgba(255,251,247,0.85);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255,255,255,0.6);
-      border-radius: 100px;
-      padding: 12px 24px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      box-shadow: 0 16px 32px rgba(176,90,58,0.08);
-      z-index: 20;
-      animation: float 6s ease-in-out infinite;
-    }
-    .fc-1 { top: 20%; left: 8%; animation-delay: 0s; }
-    .fc-2 { bottom: 30%; left: 12%; animation-delay: -2s; padding: 12px 20px; }
-    .fc-3 { top: 35%; right: 5%; animation-delay: -1s; padding: 12px 16px; border-radius: 24px; }
-    .fc-4 { bottom: 25%; right: 10%; animation-delay: -3s; }
-
-    @keyframes float {
-      0% { transform: translateY(0px); }
-      50% { transform: translateY(-12px); }
-      100% { transform: translateY(0px); }
-    }
-
-    .fc-icon {
-      width: 40px; height: 40px;
-      background: var(--bg);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 20px;
-    }
-    .fc-text h4 { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 2px;}
-    .fc-text p { font-size: 12px; color: var(--text-muted); }
-    
-    .fc-tag {
-      background: var(--accent); color: white;
-      font-size: 11px; font-weight: 700;
-      padding: 4px 10px; border-radius: 12px;
-      margin-left: 8px;
-    }
-
-    /* Mini profiles */
-    .profiles-row {
-      display: flex; gap: 8px;
-    }
-    .profile-pill {
-      background: rgba(255,251,247,0.85);
-      border: 1px solid rgba(255,255,255,0.6);
-      padding: 12px; border-radius: 100px;
-      display: flex; flex-direction: column; align-items: center; gap: 4px;
-      box-shadow: 0 8px 16px rgba(176,90,58,0.05);
-    }
-    .profile-pill.active {
-      border: 2px solid var(--accent);
-      background: var(--surface);
-    }
-    .profile-pill img { width: 36px; height: 36px; border-radius: 50%; background: #E8D4C7; }
-    .profile-pill span { font-size: 10px; font-weight: 600; color: var(--text); }
-    .profile-pill .role { font-size: 9px; color: var(--text-muted); font-weight: 400;}
 
     @media (max-width: 900px) {
       h1 { font-size: 42px; }
-      .float-card { display: none; }
       nav { padding: 20px; }
       .nav-links { display: none; }
+      .promo-gallery img { height: 450px; }
     }
   </style>
 </head>
@@ -299,65 +219,12 @@
     </div>
   </div>
 
-  <div class="showcase-container">
-    
-    <!-- Floating Card 1: AI Scan -->
-    <div class="float-card fc-1">
-      <div class="fc-icon">✨</div>
-      <div class="fc-text">
-        <h4>AI Skin Scan</h4>
-        <p>Instant cosmetic analysis</p>
-      </div>
-      <div class="fc-tag">Try it</div>
-    </div>
-    
-    <!-- Floating Card 2: Rating -->
-    <div class="float-card fc-2">
-      <span style="color:#C8923B; font-size:24px;">★</span>
-      <div class="fc-text" style="margin-left:8px;">
-        <h4 style="font-size:16px;">5.0</h4>
-        <p>Rating</p>
-      </div>
-    </div>
-    
-    <!-- Floating Card 3: Profiles (Mini feature) -->
-    <div class="float-card fc-3" style="background:transparent; border:none; box-shadow:none;">
-      <div class="profiles-row">
-        <div class="profile-pill">
-          <div style="font-size:24px;">🌞</div>
-          <span>Morning</span>
-          <span class="role">Routine</span>
-        </div>
-        <div class="profile-pill active">
-          <div style="font-size:24px;">🌙</div>
-          <span>Evening</span>
-          <span class="role">Routine</span>
-        </div>
-        <div class="profile-pill">
-          <div style="font-size:24px;">🛡️</div>
-          <span>Protect</span>
-          <span class="role">SPF 50+</span>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Floating Card 4: Voice Chat -->
-    <div class="float-card fc-4">
-      <div class="fc-icon" style="background:var(--accent); color:white;">🎙️</div>
-      <div class="fc-text">
-        <h4>Ask RAE</h4>
-        <p>Live voice assistant</p>
-      </div>
-    </div>
-
-    <!-- Center Phone -->
-    <div class="phone-frame">
-      <div class="dynamic-island"></div>
-      <div class="phone-screen">
-        <img src="app-screen.png" alt="App Screen" />
-      </div>
-    </div>
-    
+  <div class="promo-gallery">
+    <img src="promo1.png" alt="Promo 1" />
+    <img src="promo2.png" alt="Promo 2" />
+    <img src="promo3.png" alt="Promo 3" />
+    <img src="promo4.png" alt="Promo 4" />
+    <img src="promo5.png" alt="Promo 5" />
   </div>
 
 </body>
